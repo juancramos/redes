@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-
-
-import os, urllib2, sys, zipfile, shutil 
-
-os.system("#! /bin/bash")
-
-os.system("echo labredesML340 | sudo apt-get install apache2 -y")
-os.system("echo labredesML340 | sudo apt-get install php5 -y")
-
-=======
 #! /bin/bash
 
 import os, urllib2, sys, zipfile, shutil 
@@ -17,7 +6,6 @@ import os, urllib2, sys, zipfile, shutil
 os.system("echo labredesML340 | sudo apt-get install apache2 -y")
 os.system("echo labredesML340 | sudo apt-get install php5 -y")
 # Instalación de mysql
->>>>>>> 4ce9f944eceb0116723ce189d7c566f9bcd8912d
 os.system("sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password labredesML340'")
 os.system("sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password labredesML340'")
 os.system("sudo apt-get -y install mysql-server-5.5")
@@ -43,11 +31,7 @@ localFile.close()
 sourceZip = zipfile.ZipFile( tmp_path + "/booked-2.5.1.zip" ,  'r')
 for name in sourceZip.namelist():
     print name
-<<<<<<< HEAD
-    sourceZip.extract(name, tmp_path + "/www/var/" + name )
-=======
     sourceZip.extract(name, tmp_path + "/www/var" + name )
->>>>>>> 4ce9f944eceb0116723ce189d7c566f9bcd8912d
 sourceZip.close()
 
 #dar permisos
@@ -62,19 +46,11 @@ os.system("sudo chown www-data ./tpl_c")
 os.system("sudo chown www-data ./uploads")
 
 #copiar a nuevo archivo
-<<<<<<< HEAD
-shutil.copy("/home/labredes/Downloads/www/var/booked/config/config.dist.php", "/home/labredes/Downloads/www/var/booked/config/config.php")
-
-#ocultar archivo .zip
-path = "/home/labredes/Downloads/booked-2.5.1.zip"
-def hide(*path): 
-=======
 shutil.copy('./config/config.dist.php', './config/config.php')
 
 #ocultar archivo .zip
 def hide('/home/labredes/Downloads/booked-2.5.1.zip'): 
     import os 
->>>>>>> 4ce9f944eceb0116723ce189d7c566f9bcd8912d
     if not os.path.exists('/home/labredes/Downloads/booked-2.5.1.zip'): 
         return 
     archive = os.path.basename('/home/labredes/Downloads/booked-2.5.1.zip') 
