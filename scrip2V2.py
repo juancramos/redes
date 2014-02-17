@@ -45,8 +45,6 @@ os.system("sudo chown www-data ./tpl")
 os.system("sudo chown www-data ./tpl_c")
 os.system("sudo chown www-data ./uploads")
 
-#copiar a nuevo archivo
-os.system("cp ./config/config.dist.php ./config/config.php")
 
 #ocultar archivo .zip
 def hide(*path): 
@@ -61,3 +59,6 @@ def hide(*path):
         os.rename(*path, newfile) 
         
 hide("/home/labredes/Downloads/booked-2.5.1.zip")
+
+#copiar a nuevo archivo
+os.system("cp -r ./config/config.dist.php ./config/config.php")
